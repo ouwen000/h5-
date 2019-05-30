@@ -1,0 +1,201 @@
+.container-fill{
+	height: 100%;
+	overflow: hidden;
+}
+.scroll-fullpage{
+	height: 100%;
+	transition: all 0.3s;
+}
+.section{
+	height: 100%;
+}
+.section-maintitle{
+	display: block;
+	text-align: center;
+	font-size: 50rpx;
+	color: #fff;
+	font-weight: bold;
+	letter-spacing: 10rpx;
+	padding-top: 140rpx;
+}
+.section-subtitle{
+	display: block;
+	text-align: center;
+	font-size: 40rpx;
+	color: #fff;
+	font-weight: bold;
+	letter-spacing: 10rpx;
+}
+.box-mun-0{
+  background: #fff;
+}
+.box-mun-1{
+  background: #fff;
+}
+.box-mun-2{
+  background: #fff;
+}
+.box-mun-3{
+  background: #000;
+}
+
+.home-img{
+  width: 100%;
+  height: 100%
+}
+.title-img{
+  width: 100%;
+  height: 20%
+}
+.bg-img{
+  width: 100%;
+  height: 80%
+}
+
+.main-container{
+  position: relative;
+}
+.video-box {
+  position: absolute;
+  width: 96vw;
+  left: 2vw;
+  top: 40%;
+}
+.video-box video{
+  width: 100%;
+}
+.swiper-box{
+  height: 80%;
+}
+.swiper{
+  height: 50%;
+}
+.swiper-img{
+  width: 100%;
+  height: 100%;
+}
+.extra{
+  width: 100%;
+  height: 80%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: relative;
+  padding-top: 2vh;
+}
+
+
+.input-container{
+  left: 15%;
+  margin: 10px 10px;
+  width: 300;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input{
+  background-color: none;
+  height: 25px;
+  width: 75%;
+  border: white;
+  border-style: solid;
+  border-width: 1px;
+  color: grey;
+  padding: 2px 5px 2px 15px;
+  font-size: 12px;
+}
+
+.label{
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+}
+
+.checkbox{
+  width: 300px;
+  font-size: 14px;
+  color: white;
+  margin: 0 auto;
+}
+
+.rule-desc{
+  margin-left: 5px;
+  width: 120px;
+  color: #2e61a2;
+}
+
+.button{
+  width: 200px;
+  background-color:#2e61a2;
+  border-radius: 0;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+}
+.to-top{
+  position: absolute;
+  width: 6vw;
+  height: 6vw;
+  left: 8vw;
+  top: -8vh;
+  z-index: 999;
+}
+
+/**
+ * transform-origin 设置旋转元素的基点位置
+ * animation-name 设置动画名称
+ * animation-duration 设置动画时间
+ * animation-fill-mode 设置播放后的状态
+ * animation-iteration-count 设置循环播放的次数
+ * transition-timing-function: cubic-bezier 贝塞尔曲线效果，它有四个值，指在X轴与Y轴的两个曲线的点，第一个点：X1 Y1;第二个点：X2 Y2
+ * transform: translate3d 设置动画Z轴位移几个元素，表示只在Z轴上移动
+ *
+ * 需要注意：transform: translate3d 不等于 transform: translateZ
+ */
+ 
+.animated {
+  animation-duration: 1s; /*动画时间*/
+  animation-fill-mode: both; /*播放后的状态*/
+}
+ 
+.animated {
+  animation-iteration-count: infinite; /*动作循环的次数：infinite 无限循环*/
+}
+ 
+.animated {
+  animation-duration: 2s; /*动画时间*/
+}
+ 
+.upcontainer {
+  height: 5vh;
+  width: 10vw;
+  left: 45vw;
+  position: absolute;
+  bottom: 2%;
+  /* background: #fff; */
+  z-index: 100;
+}
+ 
+.upcontainer{
+  animation-name:upcontainer; /*动画的名称*/
+  transform-origin: center bottom; /*设置动画旋转元素的基点为：居中靠下*/
+  cursor: pointer;
+}
+ 
+@keyframes upcontainer{
+  0% {transform:translate(0,0)}
+  50% {transform:translate(0,0.5vh)}
+}
+
+.active .section-maintitle,
+.active .section-subtitle{
+	/* animation: mymove 0.8s; */
+}
+@keyframes mymove{
+	from {
+		transform: translateY(-400rpx) scale(0.5) rotateY(90deg);
+	}
+	to {
+		transform: translateY(0) scale(1) rotateY(0);
+	}
+}

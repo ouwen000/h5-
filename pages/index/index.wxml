@@ -1,0 +1,101 @@
+
+<view class="container container-fill">
+	<view class="scroll-fullpage" 
+  bindtouchstart="scrollTouchstart" 
+  bindtouchmove="scrollTouchmove" 
+  bindtouchend="scrollTouchend" 
+  style="transform:translateY(-{{scrollindex*100}}%);margin-top: {{margintop}}px"
+  >
+		<!-- <view class="section section01 {{scrollindex==0?'active':''}}" style="background: #3399FF;">
+			<text class="section-maintitle">无缝对接双创服务1</text>
+			<text class="section-subtitle">构筑“云上孵化基地”1</text>
+		</view> -->
+
+    <block wx:key="{{index}}"  wx:for="{{pageInfos}}">
+      <view wx:if="{{!item.extra || item.extra.length==0}}" 
+      class="main-container box-mun-{{ index }} {{scrollindex== index ?'active':''}}"   
+      style='height:{{windowHeight}}px'>
+
+        <image wx:if="{{ item.all }}" src="{{ item.all }}"
+        mode="scaleToFill"
+        class="home-img"
+        >
+        </image>
+        <image wx:if="{{ item.title }}" src="{{ item.title }}"
+        mode='scaleToFill'
+        class="title-img"
+        >
+        </image>
+        <image wx:if="{{ item.content.bg }}" src="{{ item.content.bg }}"
+        mode='scaleToFill'
+        class="bg-img"
+        >
+        </image>
+        <view wx:if="{{ item.content.video }}" class="video-box">
+          <video 
+            src="{{item.content.video}}"
+            controls = "true"
+            object-fit="contain"
+            show-fullscreen-btn="true"
+          >
+          </video>
+        </view>
+
+        <view wx:if="{{ item.swiper  }}"  class="swiper-box">
+          <swiper 
+            wx:for="{{ item.swiper }}"
+            wx:key = "{{ index }}"
+            wx:for-item="urlarr"
+            indicator-dots="{{true}}" 
+            indicator-color="#ffffff" 
+            autoplay="true" 
+            circular="true" 
+            class="swiper"
+            style="background-color:#ddd"
+          >
+         
+            <block wx:for="{{ item.swiper[index].url }}" wx:key="{{row}}" wx:for-item="banner">
+              <swiper-item>
+                <image src="{{ banner }}" mode="scaleToFill" class="swiper-img"/>
+              </swiper-item> 
+            </block>
+
+          </swiper>
+        </view>
+
+        <view wx:if="{{item.content.extra}}" class="extra" style="background-image:url({{item.content.background}});background-color:#000;"
+        >
+          <image class="to-top" src="{{ item.content.top }}" bindtap="onTop"></image>
+          <block wx:key="{{n}}" wx:for-item="info" wx:for="{{item.content.extra}}">
+          <view class="input-container">
+            <label wx:if="{{info.type!='button' && info.type!='checkbox'}}" class="label">{{info.label}}</label>
+            <input wx:if="{{info.type=='text'}}" placeholder="{{info.placeholder}}" class="input" bindinput="onInput" data-name="{{info.data}}"/>
+            <button wx:if="{{info.type=='button'}}" class="button" bindtap="onSubmit">{{info.label}}</button>
+            <view wx:if="{{info.type=='checkbox'}}" class="checkbox" bindtap="onCheck" data-name="{{info.data}}">
+              <checkbox checked="{{apply}}">{{info.label}}<text class="rule-desc" bindtap="OnShowLawDesc">{{info.label2}}</text></checkbox>
+            </view>
+            <picker wx:if="{{info.type=='picker' && info.label=='性别'}}" value="{{selGender}}" 
+              range="{{gender}}" class="input" bindchange="onPick" data-name="{{info.data}}">{{genderText}}</picker>
+            <picker wx:if="{{info.type=='picker' && info.label=='省份'}}" value="{{selProv}}" 
+              range="{{provinces}}" class="input" bindchange="onPick" data-name="{{info.data}}">{{provText}}</picker>
+            <picker wx:if="{{info.type=='picker' && info.label=='城市'}}" value="{{selCity}}" 
+              range="{{citys}}" class="input" bindchange="onPick" data-name="{{info.data}}">{{cityText}}</picker>
+            <picker wx:if="{{info.type=='picker' && info.label=='经销商'}}" value="{{selSsss}}" 
+              range="{{shops}}" class="input" bindchange="onPick" data-name="{{info.data}}">{{ssss}}</picker>
+          </view>
+        </block>
+        </view>
+
+        <image
+          wx:if="{{ item.down }}"
+          class="upcontainer animated"
+          src="{{ item.down }}"
+        > </image>
+      </view>
+    </block>
+
+
+
+
+	</view>
+</view>
