@@ -132,6 +132,33 @@
   text-align: center;
   vertical-align: middle;
 }
+
+.law-text-container{
+  position: fixed;
+  top: 1vh;
+  left: 0;
+  width: 100%;
+  background-color: black;
+  overflow: hidden;
+  z-index: 999;
+}
+.law-text-view image{
+  width: 100%;
+}
+.close{
+  /* position: absolute; */
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1vh;
+  margin-left: 2vw;
+  height: 4vh;
+  width: 4vh;
+  /* border-radius: 40px; */
+  background-color: white;
+}
+
 .to-top{
   position: absolute;
   width: 6vw;
