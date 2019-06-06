@@ -64,6 +64,27 @@
 .video-box video{
   width: 100%;
 }
+.video-box image{
+  width: 100%;
+}
+
+.play{
+  border:1px solid #fff;
+  color: #fff;
+  background:none;
+  width:14vw;
+  height:14vw;
+  border-radius:14vw;
+  text-align: center;
+  line-height: 14vw;
+}
+.play{
+  position: absolute;
+  left: 41vw;
+  top: 25vw;
+}
+
+
 .swiper-box{
   height: 80%;
 }
@@ -168,6 +189,13 @@
   z-index: 999;
 }
 
+.show{
+   display:show;
+}
+.hide{
+   display:none;
+}
+
 /**
  * transform-origin 设置旋转元素的基点位置
  * animation-name 设置动画名称
@@ -181,16 +209,9 @@
  */
  
 .animated {
-  animation-duration: 1s; /*动画时间*/
   animation-fill-mode: both; /*播放后的状态*/
-}
- 
-.animated {
   animation-iteration-count: infinite; /*动作循环的次数：infinite 无限循环*/
-}
- 
-.animated {
-  animation-duration: 2s; /*动画时间*/
+  animation-duration: 2.5s; /*动画时间*/
 }
  
 .upcontainer {
@@ -214,15 +235,4 @@
   50% {transform:translate(0,1vh)}
 }
 
-.active .section-maintitle,
-.active .section-subtitle{
-	/* animation: mymove 0.8s; */
-}
-@keyframes mymove{
-	from {
-		transform: translateY(-400rpx) scale(0.5) rotateY(90deg);
-	}
-	to {
-		transform: translateY(0) scale(1) rotateY(0);
-	}
-}
+

@@ -36,8 +36,8 @@ Page({
     totalnum:4,  //总共页面数
     starty:0,  //开始的位置x
     endy:0, //结束的位置y
-    critical: 80, //触发翻页的临界值
-    margintop:0,  //滑动下拉距离
+    critical: 30, //触发翻页的临界值
+    margintop: 30,  //滑动下拉距离
 
     // 图片更新信息
     now: Date.now(),
@@ -56,6 +56,7 @@ Page({
         self.setData({ pageInfos: res.data.data });
       },
       fail: function (err) {
+        console.log("取到图片数据失败")
         self.setData({ 
           pageInfos: extra.dataInfos,
         })
@@ -317,9 +318,7 @@ Page({
   scrollTouchend:function(e){
     console.log("scrollTouchend");
     let d = this.data;
-
     console.log("d.endy", d.endy,"d.starty", d.starty);
-
     if (d.endy - d.starty > this.data.critical && d.scrollindex> 0){
       console.log("向下翻页");
       this.setData({
@@ -350,4 +349,28 @@ Page({
       imageUrl: 'https://img.wenfree.cn/wey/share_img.jpg'
     }
   },
+  /**播放视屏 */
+  play(e) {
+    //执行全屏方法  
+    var videoContext = wx.createVideoContext('myvideo', this);
+    videoContext.requestFullScreen();
+    this.setData({
+      fullScreen: true
+    })
+  },
+  /**关闭视屏 */
+  closeVideo() {
+    //执行退出全屏方法
+    var videoContext = wx.createVideoContext('myvideo', this);
+    videoContext.exitFullScreen();
+  },
+  /**视屏进入、退出全屏 */
+  fullScreen(e) {
+    var isFull = e.detail.fullScreen;
+    //视屏全屏时显示加载video，非全屏时，不显示加载video
+    this.setData({
+      fullScreen: isFull
+    })
+  }
+
 })

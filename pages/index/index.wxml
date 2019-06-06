@@ -6,39 +6,55 @@
   bindtouchend="scrollTouchend" 
   style="transform:translateY(-{{scrollindex*100}}%);margin-top: {{margintop}}px"
   >
-		<!-- <view class="section section01 {{scrollindex==0?'active':''}}" style="background: #3399FF;">
-			<text class="section-maintitle">无缝对接双创服务1</text>
-			<text class="section-subtitle">构筑“云上孵化基地”1</text>
-		</view> -->
-
     <block wx:key="{{index}}"  wx:for="{{pageInfos}}">
-      <view wx:if="{{!item.extra || item.extra.length==0}}" 
-      class="main-container box-mun-{{ index }} {{scrollindex== index ?'active':''}}"   
-      style='height:{{windowHeight}}px'>
+      <view 
+        wx:if="{{!item.extra || item.extra.length==0}}" 
+        class="main-container box-mun-{{ index }} {{scrollindex== index ?'active':''}}"   
+        style='height:{{windowHeight}}px'>
 
         <image wx:if="{{ item.all }}" src="{{ item.all }}"
-        mode="scaleToFill"
-        class="home-img"
+          mode="scaleToFill"
+          class="home-img"
         >
         </image>
         <image wx:if="{{ item.title }}" src="{{ item.title }}"
-        mode='scaleToFill'
-        class="title-img"
+          mode='scaleToFill'
+          class="title-img"
         >
         </image>
         <image wx:if="{{ item.content.bg }}" src="{{ item.content.bg }}"
-        mode='scaleToFill'
-        class="bg-img"
+          mode='scaleToFill'
+          class="bg-img"
         >
         </image>
         <view wx:if="{{ item.content.video }}" class="video-box">
+
+          <image 
+            wx:if= "{{ item.content.video_img }}"
+            src="{{ item.content.video_img }}"
+            mode='scaleToFill'
+          >
+          </image>
+          <button class="play" bindtap='play'>▶</button>
           <video 
+            id='myvideo' 
+            class='{{fullScreen?"show":"hide"}}'   
+            src="{{item.content.video}}"  
+            autoplay="true" 
+            bindfullscreenchange="fullScreen"  
+            bindended="closeVideo"
+            object-fit="contain"
+            controls>
+          </video>
+
+
+          <!-- <video 
             src="{{item.content.video}}"
             controls = "true"
             object-fit="contain"
             show-fullscreen-btn="true"
           >
-          </video>
+          </video> -->
         </view>
 
         <view wx:if="{{ item.swiper  }}"  class="swiper-box">

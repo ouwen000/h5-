@@ -21,8 +21,8 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.6",
-	"appid": "wx528cadc58103d93a",
+	"libVersion": "2.7.1",
+	"appid": "wx9291f86e020269b2",
 	"projectname": "wey-suv-block",
 	"debugOptions": {
 		"hidedInDevtools": []
